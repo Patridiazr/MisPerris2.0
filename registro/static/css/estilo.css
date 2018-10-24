@@ -1,0 +1,166 @@
+/* Documento */
+body{
+    margin: 0px;
+    padding: 0;
+    position: relative;
+}
+/* LOGO */
+header #logo{
+    background-color: #85D4B7 ;
+    align-content: center;
+    padding: 0%;
+    height: 65px;
+    border: 0px;
+}
+/* BARRA DE NAVEGACION */
+.navbar-nav{
+    width: 100%;
+    text-align: right;
+}
+/* BARRA DE NAVEGACION */
+.nav-link{
+    float: right;
+    font-size: 20px;
+}
+/* REDES SOCIALES */
+div .col-md-12{
+  text-align: center;
+  font-size: 30px;
+}
+.d-md-block {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 2px;
+}
+/* CARRUSEL*/
+.center-crop{
+    max-height: 400px;
+    min-height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+SECTION DERECHA
+section #web-right {
+    height: auto;
+    padding:50px;
+}
+/* SECTION DERECHA */
+#web-right .col-md-12 {
+  float: right;
+  width: 40%;
+  padding:20px;
+  margin: 50px;
+} 
+
+/* SECTION IZQUIERDA */
+section #web-left {
+  height: auto;
+  padding:50px;
+}
+/* SECTION IZQUIERDA */
+#web-left .col-md-12 {
+float: left;
+width: 40%;
+padding:20px;
+margin: 50px;
+} 
+
+/* TITULOS DERECHO*/
+h1.title {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: right;
+  margin-bottom:5px;
+  margin-top:0px;
+}
+/* SUBTITULOS DERECHO */
+h3.subtitle {
+  text-transform: uppercase;
+  text-align: right;
+  color:#333333;
+  font-size:15px;
+  margin-top:5px;
+}
+/* PARRAFO DERECHO*/
+.right p {
+  text-align: right;
+}
+
+/* TITULO IZQUIERDO */
+.left h1.title {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: left;
+  margin-bottom:5px;
+  margin-top:0px;
+}
+/* SUBTITULO IZQUIERDO */
+.left h3.subtitle {
+  text-transform: uppercase;
+  text-align: left;
+  color:#333333;
+  font-size:15px;
+  margin-top:5px;
+}
+/* PARRAFO IZQUIERDO*/
+.left p {
+    text-align: left;
+  } 
+
+/* CAMPAÑAS */
+#campaigns {
+  background-color:#fff;
+  padding:10px 25px;
+  border: solid 3px #333333;
+  color: #333333;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* GALERIA DE IMAGENES */
+.thumb {
+  max-width:180px;
+  max-height:200px;
+
+}
+.grid-container{
+  display: block;
+  float: left;
+  margin: 50px;
+  object-position: center;
+  background-repeat: none;
+  background-color:#85D4B7; 
+  
+  max-width: 100%;
+  max-height: 100%
+}
+.foto {
+  position: sticky;
+  border-color: black;
+  width: 100px;
+  height:100px;
+  border:1px dotted #85D4B7;  
+  padding: 8px ;
+  margin:10px;
+  float: left;
+  
+ 
+}
+.foto:hover {
+  border-color:tomato;
+  opacity: 100;
+  
+} 
+/* TEXTO DE PIE DE PAGINA */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #333333;
+  color: white;
+  text-align: center;
+}
+
+/*Formulario*/
+.container  {
+  background-color: #85D4B7;
+}

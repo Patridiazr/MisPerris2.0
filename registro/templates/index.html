@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flexboxgrid.css' %}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">    
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <title>Mis Perris</title>
+</head>
+<body>
+    <!---------------------------- BARRA DE NAVEGACION ------------------------>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#85D4B7" >
+            <img src="/static/images/logo.png" alt="img" style="widows: 100%;">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active" >
+                <a class="nav-link" href="inicio.html"  >Inicio <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="quienes.html">Quienes Somos</a>
+                </li>
+                <li class="nav-item active">
+                <a class="nav-link"  href="servicios.html">Servicios</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="contactenos.html">Contactenos</a>
+                </li>
+            </ul>
+          </div>
+        </nav>
+    </header>
+  
+    <!----------------------------Carrusel de imagenes---------------------------------->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100 center-crop" src="/static/images/Apolo.jpg" alt="First slide" width="100%" >
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Primer Slide</h5>
+              <p>Informacion primer Slide</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 center-crop" src="/static/images/Duque.jpg" alt="Second slide" >
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second Slide</h5>
+              <p>Informacion segundo Slide</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 center-crop" src="/static/images/Tom.jpg" alt="Third slide" >
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third Slide</h5>
+              <p>Informacion tercer Slide</p>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+        </div>
+
+          <!----------------------------Nav Social---------------------------------->
+          <div  class="row">
+            <div class="col-md-12" style="background-color:#85D4B7;">
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-instagram"></i>
+              <i class="fab fa-google-plus-square"></i>
+              <i class="fas fa-envelope"></i>
+            </div>
+          </div>
+    <!--------------------------Secciones-------------------------------------->
+    <section id="web-right">
+        <div class="col-md-12">
+            <div class="right">
+                <h1 class="title">Rescate</h1>
+                <h3 class="subtitle">Etapa uno</h1>
+                  <br>
+                <p>Rescatamos perros en situación de peligro y/o abandono. Los rehabilitamos y los preparamos para buscarles un hogar</p>
+                <img style="float:right" style="height: 180px;" src="/static/images/rescate.jpg">
+            </div>
+        </div>
+      </section>
+      <section id="web-left">
+          <div class="col-md-12">
+              <div class="left">
+                  <img style="height: 180px;" src="/static/images/crowfunding.jpg">
+                  <h1 class="title">crowdfunding</h1>
+                  <h3 class="subtitle">financiamiento</h1>
+                    <br>  
+                  <p>Sigue nuestras redes sociales para informarte acerca de las diversas campañas y actividades que realizamos para obtener financiamiento y seguir ayudando</p>
+                  <button id="campaigns">
+                      campañas
+                  </button>
+              </div>
+          </div>
+      </section>
+    
+   <!------------------------Galeria de Imagenes----------------------------------------->
+
+   <section class="grid-container">
+     <div>
+       <h1 style="text-align: center" > Rescatados</h1>
+     </div>
+        <div class="foto" style="width: 200px; height: 200px; align-items: center" >
+    <img class="thumb" src="/static/images/Wifi_tn.jpg"  style="width: 200px height 100px "  >
+    <h4 style="text-align: center;" >Wifi</h4>
+  </div>
+  <div class="foto" style="width: 200px; height: 200px;">
+    <img class="thumb" src="/static/images/Bigotes.jpg" style="width: 200px; height:120px;">
+    <h4 style="text-align: center;">Bigotes</h4>
+  </div>
+  <div class="foto" style="width: 200px; height: 200px;">
+    <img class="thumb" src="/static/images/Chocolate.jpg" style="width: 200px; height: 120px;">
+    <h4 style="text-align: center;">Chocolate</h4>
+  </div>
+  <div class="foto" style="width: 200px; height: 200px;">
+    <img class="thumb" src="/static/images/Luna_tn.jpg" style="width: 200px; height: 120px;">
+    <h4 style="text-align: center;">Luna</h4>
+  </div>
+  <div class="foto" style="width: 200px; height: 200px;">
+    <img class="thumb" src="/static/images/Maya_tn.jpg" style="width: 200px; height: 120px;">
+    <h4 style="text-align: center;">Maya</h4>
+  </div>
+  <div class="foto" style="width: 200px; height: 200px;">
+    <img class="thumb" src="/static/images/Oso_tn.jpg" style="width: 200px; height: 120px;">
+    <h4 style="text-align: center;">Oso</h4>
+  </div>
+  <div class="foto" style="width: 200px; height: 200px;">
+    <img class="thumb" src="/static/images/Pexel.jpg" style="width: 200px; height: 120px;">
+    <h4 style="text-align: center;">Pexel</h4>
+  </div>
+</section>
+
+    <!--------------------------FOOTER------------------------------------------->
+    <div class="footer">
+      <p>Desarrollo web y mobile</p>
+    </div>
+    
+   
+    <script src="/registro/static/js/jquery-3.3.1.js"></script>
+    <script src="/registro/static/js/bootstrap.js"></script>
+    <script src="/registro/static/js/app.js"></script>
+</body>
+</html>
