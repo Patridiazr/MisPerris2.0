@@ -17,6 +17,9 @@ def contactenos(request):
 def servicios(request):
     return render (request,'servicios.html',{})
 
+def adoptar(request):
+    return render  (request,'adoptar.html',{})   
+
 
 #Crear Usuarios
 def U_Crear(request):

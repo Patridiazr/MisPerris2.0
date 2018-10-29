@@ -8,7 +8,8 @@ urlpatterns = [
     path('registro/templates/quienes.html',views.quienes,name="quienes"),
     path('registro/templates/contactenos.html',views.contactenos,name="contactenos"),
     path('registro/templates/servicios.html',views.servicios,name="servicios"),
-    path('registro/crear',views.U_Crear,name = "crear")
+    path('registro/crear',views.U_Crear,name = "crear"),
+    path('registro/templates/adoptar.html',views.adoptar,name="adoptar")
 ]
 
 
