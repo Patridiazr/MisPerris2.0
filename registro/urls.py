@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.conf.urls import url
 
 
 urlpatterns = [
@@ -8,7 +9,12 @@ urlpatterns = [
     path('registro/templates/quienes.html',views.quienes,name="quienes"),
     path('registro/templates/contactenos.html',views.contactenos,name="contactenos"),
     path('registro/templates/servicios.html',views.servicios,name="servicios"),
-    path('registro/crear',views.U_Crear,name = "crear")
+    path('registro/crear',views.U_Crear,name = "crear"),
+    path('registro/templates/login.html',views.login,name="login"),
+    url(r'^login/$',views.login, name="login"),
+    url(r'^login/iniciar/$',views.login_iniciar,name="iniciar"),
+    url(r'^cerrarsesion$',views.cerrar_session,name="cerrar_session"),
+    
 ]
 
 

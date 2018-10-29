@@ -2,6 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Usuario
 from django.shortcuts import redirect
+#importar user
+from django.contrib.auth.models import User
+#sistema de autenticación 
+from django.contrib.auth import authenticate,logout, login as auth_login
+
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -17,6 +23,8 @@ def contactenos(request):
 def servicios(request):
     return render (request,'servicios.html',{})
 
+def login(request):
+    return render (request,'login.html',{})
 
 #Crear Usuarios
 def U_Crear(request):
@@ -45,3 +53,19 @@ def P_buscar(request,id):
     perro = Perro.objets.get(pk=id)
     return redirect('perros(?)')
 """
+
+def login_iniciar(request):
+    usuario = request.POST.get('rut','')
+    contrasenia = request.POST.get('contrasenia','')
+    user = authenticate(request,username=usuario, password=contrasenia)
+
+    if user is not None:
+        auth_login(request, user)
+        return HttpResponse('<script>alert("Inicio de sesión correcto."); window.location.href="/index/";</script>')
+    else:
+        return HttpResponse('<script>alert("Ocurrió un error, intenta nuevamente..."); window.location.href="/login/";</script>')
+
+@login_required(login_url='/login/')
+def cerrar_session(request):
+    logout(request)
+    return HttpResponse('<script>alert("Cierre de sesión correcto."); window.location.href="/index/";</script>')               
