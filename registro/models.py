@@ -12,7 +12,7 @@ class Usuario(models.Model):
     tipoViv = models.CharField(max_length=100)
     
 
-class Rescatado(models.Model):
+class Perro(models.Model):
     foto = models.ImageField()
     nombre = models.CharField(max_length=100)
     raza = models.CharField(max_length=100)

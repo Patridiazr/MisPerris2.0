@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Usuario
+from django.shortcuts import redirect
 
 # Create your views here.
 
@@ -16,7 +17,8 @@ def contactenos(request):
 def servicios(request):
     return render (request,'servicios.html',{})
 
-#Crud Usuarios
+
+#Crear Usuarios
 def U_Crear(request):
     rut = request.POST.get('rut','')
     correo = request.POST.get('Email','')
@@ -28,7 +30,7 @@ def U_Crear(request):
     tipoViv = request.POST.get('vivienda','')
     usuario = Usuario(rut=rut,correo=correo,nombre=nombre,fechaNac=fechaNac,telefono=telefono,region=region,ciudad=ciudad,tipoViv=tipoViv)
     usuario.save()
-    return HttpResponse('rut : '+rut+" correo: "+correo+" nombre: "+nombre+" fecha nacimiento: "+fechaNac+" telefono: "+telefono+" region: "+region+" ciudad: "+ciudad+" tipo vivienda: "+tipoViv)
+    return redirect('contactenos')
 
 #Crud Rescatados
 def R_crear(request):
@@ -38,3 +40,8 @@ def R_crear(request):
     descripcion = request.POST.get('descripcion','')
     estado = request.POST.get('estado','')
     return HttpResponse('foto : '+foto+" nombre: "+nombre+" raza: "+raza+" descripcion: "+descripcion+" estado: "+estado)
+"""
+def P_buscar(request,id):
+    perro = Perro.objets.get(pk=id)
+    return redirect('perros(?)')
+"""
