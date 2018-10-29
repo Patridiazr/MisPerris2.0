@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +11,18 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">    
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <link rel="stylesheet" href="{% static 'js/jquery-3.3.1.js' %}">
+    <link rel="stylesheet" href="{% static 'js/popper.js' %}">
+    <link rel="stylesheet" href="{% static 'js/j.query.validate.js' %}">
+    <link rel="stylesheet" href="{% static 'js/app.js' %}">
+      
+    
+    <script src="../static/"></script>
     <title>Mis Perris</title>
 </head>
 <body>
+
+
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#85D4B7" >
             <img src="/static/images/logo.png" alt="img" style="widows: 100%;">
@@ -38,11 +48,16 @@
         </nav>
     </header>
 
+    <form action="" method="post">
+    
 
-    <script src="../static/js/jquery-3.3.1.js"></script>
-    <script src="../static/js/popper.js"></script>
-    <script src="../static/js/bootstrap.js"></script>
-    <script src="../static/js/jquery.validate.js"></script>
-    <script src="../static/js/app.js"></script>
+    </form>
+
+
+    <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
 </body>
 </html>
