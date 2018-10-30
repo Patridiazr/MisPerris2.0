@@ -28,6 +28,9 @@ def adoptar(request):
 def login(request):
     return render(request, 'login.html',{})
 
+def eliminar(request):
+    return render(request, 'eliminar.html', {})
+
 def listado(request):
     perro = Perro.objects.all()
     contexto = {'Disponibles': perro}
