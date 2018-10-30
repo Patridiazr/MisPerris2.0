@@ -55,18 +55,16 @@
                   </li>
                   <a class="nav-link" href="/registro/templates/login.html">Ingresar</a>
                 </li>
-              <li class="nav-item active"> 
-              <a class="nav-link" href="/registro/templates/login.html">Ingresar</a>
-              </li>
+              
             </ul>
           </div>
         </nav>
     </header>
 
   <!---------------------------- Formulario ------------------------>
-
+<h3 style="text-align: center">Editando a {{perro.nombre}}</h3>
 <div class="container" >
-  <form action="/registro/crearP"  method="POST">
+  <form action="/registro/editado/{{perro.id}}"  method="POST">
     {% csrf_token %}
       <div class="row">
       <div class="col-md-4"></div>
@@ -75,24 +73,24 @@
         <!--name-->
         <h3  for="foto">Imagen *</h3>
         <div class="form-group"> 
-         <input type="file"  name="foto" id="foto" placeholder="Adicional">
+         <input type="file"  name="foto" id="foto" value="{{perro.foto}}"  placeholder="Adicional">
         </div>
         <br>
         <!--nombre-->
       <h3 for="nombre">Nombre *</h3>
-          <input  style="text-align: left" type="text" class="form-control" name="nombre" required  placeholder="ingrese el nombre del rescatado" id="nom">
+          <input  style="text-align: left" type="text" value="{{perro.nombre}}" class="form-control" name="nombre" required  placeholder="ingrese el nombre del rescatado" id="nom">
       <br>
       <!--raza predominante-->
         <h3 for="raza">Raza predominante *</h3>
-          <input style="text-align: left" type="text" class="form-control" name="raza" required placeholder="ingrese la raza" id="raz" >          
+          <input style="text-align: left" type="text" value="{{perro.raza}}" class="form-control" name="raza" required placeholder="ingrese la raza" id="raz" >          
         <br>      
         <!--menssage-->
       <h3  for="Menssage">Descripcion *</h3>
-        <textarea style="text-align: left" type="textarea" name="descripcion" rows="10" cols="40" required placeholder="ingrese una descripcion del rescatado" id="des"></textarea>    
+        <textarea style="text-align: left" type="textarea" value="{{perro.descripcion}}" name="descripcion" rows="10" cols="40" required placeholder="ingrese una descripcion del rescatado" id="des"></textarea>    
       <br>
         <!--estado-->
         <h4 for="estado">Estado</h4>
-      <select  name="estado" class="form-control"  id="est">
+      <select  name="estado" class="form-control" value="{{perro.estado}}"  id="est">
         <option  hidden>Seleccione un estado</option>
         <option value="Rescatado">Rescatado</option>
         <option value="Disponible">Disponible</option>

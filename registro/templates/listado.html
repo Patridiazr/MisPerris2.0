@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{% static 'js/popper.js' %}">
     <link rel="stylesheet" href="{% static 'js/j.query.validate.js' %}">
     <link rel="stylesheet" href="{% static 'js/app.js' %}">
-    <script src="../static/"></script>
+    
     <title>Disponibles</title>
 </head>
 <body>
@@ -43,10 +43,8 @@
                               Mantenedor
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="adoptar.html">Agregar</a>
-                              <a class="dropdown-item" href="Crowdfounding.html">Editar</a>
-                              <a class="dropdown-item" href="Crowdfounding.html">Eliminar</a>
-                              <a class="dropdown-item" href="listadoDisponibles.html">Listado</a>
+                              <a class="dropdown-item" href="adoptar.html">Agregar</a>                              
+                              <a class="dropdown-item" href="listado.html">Listado</a>
                             </div>
                           </li>
                           <a class="nav-link" href="/registro/templates/login.html">Ingresar</a>
@@ -55,15 +53,67 @@
                   </div>
                 </nav>
             </header>    
-        <h3>Lista de elemetnos</h3>
-        <ul>
-         {% for e in elementos%}
-         <li>{{e.nombre}} {{e.apellido}} edad: {{e.edad}} <a href="/registro/buscar/{{e.id}}">Ver</a><a href="/registro/editar/{{e.id}}">Editar</a><a href="/registro/eliminar/{{e.id}}">Eliminar</a></li>
-         {% endfor %}
-        </ul>
+        <h3>Lista de perros inscritos</h3>
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                  <td>#</td>
+                  <td>Foto</td>
+                  <td>Nombre</td>
+                  <td>Raza</td>
+                  <td>Descripcion</td>
+                  <td>Estado</td>       
+                  <td>Acciones</td>           
+              </tr>              
+            </thead>
+            <tbody>
+              {% if Disponibles %}
+              {% for p in Disponibles %}
+              
+              <tr>
+                <td>{{ p.id }}</td>
+                <td>{{ p.foto }}</td>
+                <td>{{ p.nombre }} </td>
+                <td>{{ p.raza }}</td>
+                <td>{{ p.descripcion }}</td>
+                <td>{{ p.estado }}</td>  
+                <td> 
+                    <a class="btn btn-primary" href="/registro/editar/{{p.id}}">Editar</a>
+                    <a class="btn btn-danger" href="#openModal">Eliminar</a>
+
+
+                </td>
+                <div id="openModal" class="modalDialog">
+                        <div>
+                            <a href="#close" title="Close" class="close">X</a>
+                            
+                            <form action="/registro/eliminar/{{p.id}}" method="POST" >
+                                {% csrf_token %}
+                                <h4>¿Esta seguro de eliminar este registro?</h4>
+                                <button class="btm btn-danger"  type="submit">Si, eliminar</button>
+                                <a class="btn btn-default" href="listado.html">Cancelar</a>
+            
+                            </form>
+                            
+                            
+                        </div>
+                    </div>
+                
+                
+              </tr>
+              
+              {% endfor %}
+              {% else %}
+              <h1>No hay registros</h1>
+              {% endif %}
+
+            </tbody>
+        </table>
         
     
+        
 
+        
     <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
     <script src="{% static 'js/popper.js' %}"></script>
     <script src="{% static 'js/bootstrap.js' %}"></script>

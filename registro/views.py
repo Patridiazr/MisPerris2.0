@@ -15,6 +15,7 @@ def index(request):
 def quienes(request):
     return render (request, 'quienes.html', {})
 
+
 def contactenos(request):
     return render (request, 'contactenos.html', {})
 
@@ -28,7 +29,14 @@ def login(request):
     return render(request, 'login.html',{})
 
 def listado(request):
-    return render (request,'listadoDisponible',{})    
+    perro = Perro.objects.all()
+    contexto = {'Disponibles': perro}
+    return render (request, 'listado.html', contexto)   
+
+def listado2(request):
+    perro = Perro.objects.all()
+    contexto = {'Disponibles': perro}
+    return render (request, 'servicios.html', contexto)
 
 #Crear Usuarios
 def u_crear(request):
@@ -54,27 +62,33 @@ def r_crear(request):
     estado = request.POST.get('estado', '')
     perro = Perro(foto=foto, nombre=nombre, raza=raza, descripcion=descripcion, estado=estado)
     perro.save()
-    return HttpResponse('foto : '+foto+" nombre: "+nombre+" raza: "+raza+" descripcion: "+descripcion+" estado: "+estado)
+    return redirect('adoptar')
 
-def P_buscar(request,id):
-    perro = Perro.objects.get(estado=disponible)
+def p_eliminar(request, id_p):
+    perro = Perro.objects.get(id=id_p)
+    perro.delete()
+    return redirect('Listado')
 
-def p_buscar(request, id):
-    perro = Perro.objects.get(pk=id)
-    return perro
+def p_editar(request, id_p):
+    perro = Perro.objects.get(pk=id_p)
+    return render(request, 'editar.html', {'perro':perro})
 
-def p_editar(request, nombre_p):   
-
-    perro = Perro.objects.get(nombre=nombre_p) 
+def p_editado(request, id_p):
+    p = Perro.objects.get(pk=id_p)
     foto = request.POST.get('foto', '')
     nombre = request.POST.get('nombre', '')
     raza = request.POST.get('raza', '')
     descripcion = request.POST.get('descripcion', '')
     estado = request.POST.get('estado', '')
-    perro = Perro.objets.get(pk=id)
-    return redirect('perros(?)')
+    p.foto = foto
+    p.nombre = nombre
+    p.raza = raza
+    p.descripcion = descripcion
+    p.estado = estado
+    p.save()
+    return redirect('Listado')
 
-
+   
 
 def login_iniciar(request):
     usuario = request.POST.get('rut','')
@@ -94,7 +108,3 @@ def cerrar_session(request):
     logout(request)
     return HttpResponse('<script>alert("Cierre de sesión correcto."); window.location.href="/index/";</script>')               
 
-def listado(request):
-    perro = Perro.object.all()
-    contexto = {'Disponibles': perro}
-    return render (request,'registro/listadoDisponible.html', contexto)
