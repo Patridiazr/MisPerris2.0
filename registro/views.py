@@ -29,6 +29,9 @@ def adoptar(request):
 def login(request):
     return render (request,'login.html',{})
 
+def listado(request):
+    return render (request,'listadoDisponible',{})    
+
 #Crear Usuarios
 def U_Crear(request):
     rut = request.POST.get('rut','')
@@ -55,7 +58,7 @@ def R_crear(request):
     return HttpResponse('foto : '+foto+" nombre: "+nombre+" raza: "+raza+" descripcion: "+descripcion+" estado: "+estado)
 """
 def P_buscar(request,id):
-    perro = Perro.objects.get(pk=id)
+    perro = Perro.objects.get(estado=disponible)
     return perro
 
 def P_editar(request,id):              
@@ -83,3 +86,8 @@ def login_iniciar(request):
 def cerrar_session(request):
     logout(request)
     return HttpResponse('<script>alert("Cierre de sesión correcto."); window.location.href="/index/";</script>')               
+
+def listado(request):
+    perro = Perro.object.all()
+    contexto = {'Disponibles': perro}
+    return render (request,'registro/listadoDisponible.html', contexto)

@@ -14,8 +14,10 @@ urlpatterns = [
     path('registro/crear',views.U_Crear,name = "crear"),
     path('registro/templates/adoptar.html',views.adoptar,name="adoptar"),
     path('registro/templates/login.html',views.login,name="login"),
+    path('registro/templates/listadoDisponibles.html',views.listado,name="ListadoDisponibles"),
     url(r'^login/$',views.login, name="login"),
     url(r'^login/iniciar/$',views.login_iniciar,name="iniciar"),
+    url(r'^cerrarsesion$',views.cerrar_session,name="cerrar_session"),
     url(r'^cerrarsesion$',views.cerrar_session,name="cerrar_session"),
     
 ]

@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
@@ -43,10 +43,17 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/registro/templates/contactenos.html">Contactenos</a>
                 </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="/registro/templates/adoptar.html">Adoptar</a>
-                </li>
-                <li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Mantenedor
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="adoptar.html">Agregar</a>
+                      <a class="dropdown-item" href="Crowdfounding.html">Editar</a>
+                      <a class="dropdown-item" href="Crowdfounding.html">Eliminar</a>
+                      <a class="dropdown-item" href="Contactenos.html">Listado</a>
+                    </div>
+                  </li>
                   <a class="nav-link" href="/registro/templates/login.html">Ingresar</a>
                 </li>
             </ul>
@@ -63,7 +70,7 @@
       <div class="col-md-4">
         <div class="form-group"></div>
         <!--name-->
-        <h3  for="name">Imagen *</h3>
+        <h3  for="foto">Imagen *</h3>
         <div class="form-group"> 
          <input type="file"  name="foto" id="foto" placeholder="Adicional">
         </div>
@@ -91,8 +98,8 @@
 
 
       <br>  
-        <button type="reset" class="btn btn-danger btn-block" >Clear</button>
-        <button type="submit" class="btn btn-outline-success btn-block" onclick="return validarFormulario()"  value="guardar">Send</button>
+        <button type="reset" class="btn btn-danger btn-block" >Limpiar</button>
+        <button type="submit" class="btn btn-outline-success btn-block" onclick="return validarFormulario()"  value="guardar">Enviar</button>
         <br>
       </div>
       </div>
