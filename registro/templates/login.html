@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flexboxgrid.css' %}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">    
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>Mis Perris</title>
+</head>
+
+<body>
+        <form method="POST" class="form-signin" action="{% url "iniciar" %}">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col">
+                        <label for="inputRut"  class="sr-only">Rut</label>
+                        <input type="text" id="inputRut" name="rut" class="form-control" placeholder="Email address" required autofocus> 
+                    </div>
+                  </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="inputPassword" class="sr-only">Contraseña</label>
+                        <input type="password" name="contrasenia" id="inputPassword" class="form-control" placeholder="Password" required>
+                    </div>
+                </div>
+            </br>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
+              <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+            </form>
+</body>
+</html>
+
+    
+    <script src="../static/js/jquery-3.3.1.js"></script>
+    <script src="../static/js/popper.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
+    <script src="../static/js/jquery.validate.js"></script>
+    <script src="../static/js/app.js"></script>
+</body>
+</html>
