@@ -57,7 +57,8 @@
   <!---------------------------- Formulario ------------------------>
 
 <div class="container" >
-  <form action="#" id="formulario" method="get">
+  <form action="/registro/crearP"  method="POST">
+    {% csrf_token %}
       <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-4">
