@@ -55,7 +55,7 @@ def r_crear(request):
     perro = Perro(foto=foto, nombre=nombre, raza=raza, descripcion=descripcion, estado=estado)
     perro.save()
     return HttpResponse('foto : '+foto+" nombre: "+nombre+" raza: "+raza+" descripcion: "+descripcion+" estado: "+estado)
-"""
+
 def P_buscar(request,id):
     perro = Perro.objects.get(estado=disponible)
 

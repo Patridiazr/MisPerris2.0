@@ -138,11 +138,34 @@ function checkRut(rut) {
      rut.setCustomValidity('');
  }
 
- function comprobarCon(){
-    clave1 = document.f1.con1.value
-    clave2 = document.f1.con2.value
-    if(clave1!=clave2){
-        window.alert('Las contraseñas son distintas')
-        return false
-    }
- }
+ $("#form1").validate({
+    rules: {
+        pass1: { 
+          required: true,
+             minlength: 6,
+             maxlength: 10,
+
+        } , 
+
+            pass2: { 
+             equalTo: "#pass1",
+              minlength: 6,
+              maxlength: 10
+        }
+
+
+    },
+messages:{
+  pass1: { 
+          required:"Password Requerido",
+          minlength: "Minimo 6 caracteres",
+          maxlength: "Maximo 10 caracteres"
+        },
+pass2: { 
+  equalTo: "El password debe ser igual al anterior",
+  minlength: "Minimo 6 caracteres",
+  maxlength: "Maximo 10 caracteres"
+}
+}
+
+});

@@ -98,7 +98,7 @@
 <div>
   <h1 style="text-align: center">¿Deseas adoptar un rescatado? Envianos tus datos</h1>
 <br>
-<form action="/registro/crear" name="f1" method="POST">
+<form action="/registro/crear" name="form1" id="form1" method="POST">
   {% csrf_token %}
   
 <div class="container">
@@ -115,9 +115,9 @@
       <input  style="text-align: center" type="email" class="form-control" name="Email" required  placeholder="Ingrese su Email" id="">
       <!--Contraseña-->
       <h3 for="contrasenia" name="con1">Contraseña</h3>
-      <input  style="text-align: center" type="password" class="form-control" name="con" required  placeholder="Ingrese Contraseña" id="">
+      <input  style="text-align: center" type="password" class="form-control" name="pass1" required  placeholder="Ingrese Contraseña" id="pass1">
       <h3 for="contrasenia2" name="con2">Reingrese Contraseña</h3>
-      <input  style="text-align: center" type="password" class="form-control"  required  placeholder="Ingrese Contraseña" id="">
+      <input  style="text-align: center" type="password" class="form-control" name="pass2" required  placeholder="Ingrese Contraseña" id="pass2">
       <!--Nombre Completo-->
       <h3  for="name">Nombre Completo</h3>
       <input style="text-align: center" type="text" class="form-control" name="name" required  placeholder="Ingrese su nombre " id="">   
