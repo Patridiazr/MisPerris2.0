@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Usuario
+from .models import Usuario,Perro
 from django.shortcuts import redirect
 
 # Create your views here.
@@ -39,9 +39,18 @@ def R_crear(request):
     raza = request.POST.get('raza','')
     descripcion = request.POST.get('descripcion','')
     estado = request.POST.get('estado','')
+    perro = Perro(foto = foto,nombre = nombre,raza=raza,descripcion=descripcion,estado=estado)
+    perro.save()
     return HttpResponse('foto : '+foto+" nombre: "+nombre+" raza: "+raza+" descripcion: "+descripcion+" estado: "+estado)
-"""
+
 def P_buscar(request,id):
-    perro = Perro.objets.get(pk=id)
-    return redirect('perros(?)')
+    perro = Perro.objects.get(pk=id)
+    return perro
+"""
+def P_editar(request,id):              
+    foto = request.POST.get('foto','')
+    nombre = request.POST.get('nombre','')
+    raza = request.POST.get('raza','')
+    descripcion = request.POST.get('descripcion','')
+    estado = request.POST.get('estado','')
 """
