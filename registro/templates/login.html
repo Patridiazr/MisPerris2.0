@@ -14,34 +14,35 @@
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <title>Mis Perris</title>
 </head>
-
-<body>
-        <form method="POST" class="form-signin" action="{% url "iniciar" %}">
+        <body id="LoginForm" form method="POST" class="form-signin" action="{% url "iniciar" %}">
                 {% csrf_token %}
-                <div class="form-row">
-                    <div class="col">
-                        <label for="inputRut"  class="sr-only">Rut</label>
-                        <input type="text" id="inputRut" name="rut" class="form-control" placeholder="Email address" required autofocus> 
-                    </div>
-                  </div>
-                <div class="form-row">
-                    <div class="col">
-                        <label for="inputPassword" class="sr-only">Contraseña</label>
-                        <input type="password" name="contrasenia" id="inputPassword" class="form-control" placeholder="Password" required>
+                <div class="container">
+                        <div class="row">
+                                <div class="col-md-12">
+                <div class="login-form">
+                <div class="main-div">
+                    <div class="panel">
+                   <h2>Login</h2>
+                   <p>Ingresa con tu Rut y Contraseña</p>
+                   </div>
+                    <form id="Login">
+                        <div class="form-group">
+                                <label for="inputRut"  class="sr-only">Rut</label>
+                                <input type="text" id="inputRut" name="rut" class="form-control" placeholder="Rut" required autofocus>
+                        </div>
+                        <div class="form-group">
+                                <label for="inputPassword" class="sr-only">Contraseña</label>
+                                <input type="password" name="contrasenia" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+                        </div>
+                        <div class="forgot">
+                        <a href="reset.html">Olvidaste tu contraseña?</a>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
+                <p class="mt-4 mb-3 text-muted">&copy; 2017-2018</p>
+                    </form>
                     </div>
                 </div>
-            </br>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
-              <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-            </form>
-</body>
-</html>
-
-    
-    <script src="../static/js/jquery-3.3.1.js"></script>
-    <script src="../static/js/popper.js"></script>
-    <script src="../static/js/bootstrap.js"></script>
-    <script src="../static/js/jquery.validate.js"></script>
-    <script src="../static/js/app.js"></script>
+                </div></div></div> 
+                </div>
 </body>
 </html>

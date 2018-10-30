@@ -86,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'pwikpkdm',
         'USER': 'pwikpkdm',
-        'PASSWORD': 'dIFsH_oXdmR6gPb6PR6sTDj9v1x-O2Os',
+        'PASSWORD': '4WJgB9wrZFyu2XjNMBtze0lY4l-DFs58',
         'HOST': 'pellefant.db.elephantsql.com',
         'PORT': '5432',
     }
@@ -131,6 +131,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
+
+
+
 
 
 
