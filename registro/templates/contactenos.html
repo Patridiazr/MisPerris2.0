@@ -93,12 +93,14 @@
             </div>
           </div>
 <!----------------------------------FORMULARIO--------------------------------------->
+
 <section style="text-align: center">
 <div>
   <h1 style="text-align: center">¿Deseas adoptar un rescatado? Envianos tus datos</h1>
 <br>
-<form action="/registro/crear" id="formulario" method="POST">
+<form action="/registro/crear" name="f1" method="POST">
   {% csrf_token %}
+  
 <div class="container">
   <div class="row">
     <div class="col-md-4"></div>
@@ -111,6 +113,11 @@
       <!--Email-->
       <h3 for="Email">Coreo Electronico</h3>
       <input  style="text-align: center" type="email" class="form-control" name="Email" required  placeholder="Ingrese su Email" id="">
+      <!--Contraseña-->
+      <h3 for="contrasenia" name="con1">Contraseña</h3>
+      <input  style="text-align: center" type="password" class="form-control" name="con" required  placeholder="Ingrese Contraseña" id="">
+      <h3 for="contrasenia2" name="con2">Reingrese Contraseña</h3>
+      <input  style="text-align: center" type="password" class="form-control"  required  placeholder="Ingrese Contraseña" id="">
       <!--Nombre Completo-->
       <h3  for="name">Nombre Completo</h3>
       <input style="text-align: center" type="text" class="form-control" name="name" required  placeholder="Ingrese su nombre " id="">   
@@ -144,13 +151,14 @@
     </select>
     <br>  
       <button type="reset" class="btn btn-danger btn-block" >limpiar</button>
-      <button type="submit" class="btn btn-outline-success btn-block"  value="guardar"> guardar</button>
+      <button type="submit" class="btn btn-outline-success btn-block" onclick="comprobarCon()" value="guardar"> guardar</button>
       <br>
     </div>
   </div>
   <div class="col-md-4"></div>
 </div>
 </form>
+
 
 
 
