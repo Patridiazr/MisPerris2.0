@@ -13,8 +13,9 @@ class Usuario(models.Model):
     
 
 class Perro(models.Model):
-    foto = models.ImageField()
+    imagen = models.ImageField(upload_to='fotos/')
     nombre = models.CharField(max_length=100)
     raza = models.CharField(max_length=100)
     descripcion = models.CharField(max_length=100)
     estado = models.CharField(max_length=100)
+

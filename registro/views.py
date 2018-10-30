@@ -23,6 +23,9 @@ def contactenos(request):
 def servicios(request):
     return render (request,'servicios.html',{})
 
+def adoptar(request):
+    return render  (request,'adoptar.html',{})   
+
 def login(request):
     return render (request,'login.html',{})
 

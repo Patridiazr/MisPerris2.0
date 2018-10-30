@@ -44,17 +44,61 @@
                     <a class="nav-link" href="/registro/templates/contactenos.html">Contactenos</a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="">Ingresar</a>
+                  <a class="nav-link" href="/registro/templates/adoptar.html">Adoptar</a>
+                </li>
+                <li>
+                  <a class="nav-link" href="/registro/templates/login.html">Ingresar</a>
                 </li>
             </ul>
           </div>
         </nav>
     </header>
 
-    <form action="" method="post">
-    
+  <!---------------------------- Formulario ------------------------>
 
-    </form>
+<div class="container" >
+  <form action="#" id="formulario" method="get">
+      <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="form-group"></div>
+        <!--name-->
+        <h3  for="name">Imagen *</h3>
+        <div class="form-group"> 
+         <input type="file"  name="foto" id="foto" placeholder="Adicional">
+        </div>
+        <br>
+        <!--nombre-->
+      <h3 for="nombre">Nombre *</h3>
+          <input  style="text-align: left" type="text" class="form-control" name="nombre" required  placeholder="ingrese el nombre del rescatado" id="nom">
+      <br>
+      <!--raza predominante-->
+        <h3 for="raza">Raza predominante *</h3>
+          <input style="text-align: left" type="text" class="form-control" name="raza" required placeholder="ingrese la raza" id="raz" >          
+        <br>      
+        <!--menssage-->
+      <h3  for="Menssage">Descripcion *</h3>
+        <textarea style="text-align: left" type="textarea" name="descripcion" rows="10" cols="40" required placeholder="ingrese una descripcion del rescatado" id="des"></textarea>    
+      <br>
+        <!--estado-->
+        <h4 for="estado">Estado</h4>
+      <select  name="estado" class="form-control"  id="est">
+        <option  hidden>Seleccione un estado</option>
+        <option value="Rescatado">Rescatado</option>
+        <option value="Disponible">Disponible</option>
+        <option value="Adoptado">Adoptado</option>
+      </select>
+
+
+      <br>  
+        <button type="reset" class="btn btn-danger btn-block" >Clear</button>
+        <button type="submit" class="btn btn-outline-success btn-block" onclick="return validarFormulario()"  value="guardar">Send</button>
+        <br>
+      </div>
+      </div>
+    <div class="col-md-4"></div>
+  </form>    
+</div>   
 
 
     <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
