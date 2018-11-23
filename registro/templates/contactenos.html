@@ -17,41 +17,38 @@
 <body>
     <!---------------------------- BARRA DE NAVEGACION ------------------------>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#85D4B7" >
-            <img src="/static/images/logo.png" alt="img" style="widows: 100%;">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon" style="border-bottom-color: blueviolet  " ></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active" >
-                <a class="nav-link" href="/registro/templates/index.html"  >Inicio <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/registro/templates/quienes.html">Quienes Somos</a>
-                </li>
-                <li class="nav-item active">
-                <a class="nav-link"  href="/registro/templates/servicios.html">Servicios</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/registro/templates/contactenos.html">Contactenos</a>
-                </li>
-                <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Mantenedor
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="adoptar.html">Agregar</a>
-                      
-                      <a class="dropdown-item" href="listado.html">Listado</a>
-                    </div>
-                  </li>
-
-                  <a class="nav-link" href="">Ingresar</a>
-                  </li>
-            </ul>
-          </div>
-        </nav>
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#85D4B7" >
+        <img src="/static/images/logo.png" alt="img" style="widows: 100%;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" >
+              <a class="nav-link" href="{% url 'index' %}"  >Inicio </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'quienes' %}">Quienes Somos</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link"  href="{% url 'servicios' %}">Servicios</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'contactenos' %}">Contactenos</a>
+            </li>
+            <li class="nav-item dropdown active">
+              <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mantenedor</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'adoptar' %}">Agregar</a>
+                <a class="dropdown-item" href="{% url 'listado' %}">Listado</a>
+              </div>
+            </li>
+            <li class="navbar-left">
+              <a class="nav-link "  href="{% url 'login' %}">Ingresar</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
   
     <!----------------------------Carrusel de imagenes---------------------------------->
@@ -94,69 +91,76 @@
 <!----------------------------------FORMULARIO--------------------------------------->
 
 <section style="text-align: center">
-<div>
-  <h1 style="text-align: center">¿Deseas adoptar un rescatado? Envianos tus datos</h1>
-<br>
-<form action="/registro/crear" name="form1" id="form1" method="POST">
-  {% csrf_token %}
+  <div>
+    <h1 style="text-align: center">¿Deseas adoptar un rescatado? Registrate con tus datos</h1>
+    <br>
+    <form action="crear" name="form1" id="form1" method="POST">
+      {% csrf_token %}
   
-<div class="container">
-  <div class="row">
-    <div class="col-md-4"></div>
-  <div class="col-md-4">
-      <div class="form-group" ></div>
-      <!--Rut-->
-      <h3 >Ingrese Rut</h3>
-      <input style="text-align: center;" type="text" id="rut" name="rut" required oninput="checkRut(this)" placeholder="11111111-0">  
-      <br>
-      <!--Email-->
-      <h3 for="Email">Coreo Electronico</h3>
-      <input  style="text-align: center" type="email" class="form-control" name="Email" required  placeholder="Ingrese su Email" id="">
-      <!--Contraseña-->
-      <h3 for="contrasenia" name="con1">Contraseña</h3>
-      <input  style="text-align: center" type="password" class="form-control" name="pass1" required  placeholder="Ingrese Contraseña" id="pass1">
-      <h3 for="contrasenia2" name="con2">Reingrese Contraseña</h3>
-      <input  style="text-align: center" type="password" class="form-control" name="pass2" required  placeholder="Ingrese Contraseña" id="pass2">
-      <!--Nombre Completo-->
-      <h3  for="name">Nombre Completo</h3>
-      <input style="text-align: center" type="text" class="form-control" name="name" required  placeholder="Ingrese su nombre " id="">   
-      <br>
-      <!--Fecha Nacimiento-->
-      <h3  for="nacimiento">Fecha de nacimiento(anterior 2001)</h3>
-          <input  style="text-align: center" type="date" name="fecha" required  max="2001-01-01" step="1">  
-      <br>
-    <!--Telefono-->
-      <h3 for="telefono">Ingrese su telefono</h3>
-      <input style="text-align: center" type="number" class="form-control" name="telefono" placeholder="Numero" id="" >
-    <!--Region-->
-    <h4 for="region">Región</h4>
-      <select  name="region" class="form-control"  id="region">
-        <option  hidden>Seleccione Regíon</option>
-      </select>
-      <!--Ciudad-->
-      <h4 for="comuna">Ciudad</h4> 
-    <select class="form-control" name="comuna" id="comuna" >
-      <option style="text-align: center" hidden>Seleccione Ciudad</option>
-    </select>
-  <br>
-  <!--Tipo de vivienda -->
-    <h4 for="vivienda">Tipo de vivienda</h4> 
-    <select class="form-control" name="vivienda" id="vivenda" >
-      <option style="text-align: center" hidden>Seleccione vivienda</option>
-      <option value="Cpg">Casa con patio grande</option>
-      <option value="Cpp">Casa con patio pequeño</option>
-      <option value="Csp">Casa sin patio</option>
-      <option value="Depa">Departamento</option>
-    </select>
-    <br>  
-      <button type="reset" class="btn btn-danger btn-block" >limpiar</button>
-      <button type="submit" class="btn btn-outline-success btn-block" onclick="comprobarCon()" value="guardar"> guardar</button>
-      <br>
-    </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <div class="form-group" ></div>
+                <!--Rut-->
+                <h3 >Ingrese Rut</h3>
+                <input style="text-align: center;" type="text" id="rut" name="rut" required oninput="checkRut(this)" placeholder="11111111-0">  
+                <br>
+                <!--Email-->
+                <h3 for="Email">Coreo Electronico</h3>
+                <input  style="text-align: center" type="email" class="form-control" name="Email" required  placeholder="Ingrese su Email" id="">
+                <!--Nombre De Usuario-->
+                <h3  for="name">Nombre de Usuario</h3>
+                <input style="text-align: center" type="text" class="form-control" name="username" required  placeholder="Ingrese su username " id="">   
+                <br>
+                <!--Contraseña-->
+                <h3 for="contrasenia" name="con1">Contraseña</h3>
+                <input  style="text-align: center" type="password" class="form-control" name="pass1" required  placeholder="Ingrese Contraseña" id="pass1">
+                <h3 for="contrasenia2" name="con2">Reingrese Contraseña</h3>
+                <input  style="text-align: center" type="password" class="form-control" name="pass2" required  placeholder="Ingrese Contraseña" id="pass2">
+                <!--Nombre Completo-->
+                <h3  for="name">Nombre Completo</h3>
+                <input style="text-align: center" type="text" class="form-control" name="name" required  placeholder="Ingrese su nombre " id="">   
+                <br>
+                <!--Fecha Nacimiento-->
+                <h3  for="nacimiento">Fecha de nacimiento(anterior 2001)</h3>
+                    <input  style="text-align: center" type="date" name="fecha" required  max="2001-01-01" step="1">  
+                <br>
+                <!--Telefono-->
+                <h3 for="telefono">Ingrese su telefono</h3>
+                <input style="text-align: center" type="number" class="form-control" name="telefono" placeholder="Numero" id="" >
+                <!--Region-->
+                <h4 for="region">Región</h4>
+                <select  name="region" class="form-control"  id="region">
+                  <option  hidden>Seleccione Regíon</option>
+                </select>
+                <!--Ciudad-->
+                <h4 for="comuna">Ciudad</h4> 
+                <select class="form-control" name="comuna" id="comuna" >
+                  <option style="text-align: center" hidden>Seleccione Ciudad</option>
+                </select>
+                <br>
+                <!--Tipo de vivienda -->
+                <h4 for="vivienda">Tipo de vivienda</h4> 
+                <select class="form-control" name="vivienda" id="vivenda" >
+                  <option style="text-align: center" hidden>Seleccione vivienda</option>
+                  <option value="Cpg">Casa con patio grande</option>
+                  <option value="Cpp">Casa con patio pequeño</option>
+                  <option value="Csp">Casa sin patio</option>
+                  <option value="Depa">Departamento</option>
+                </select>
+                <br>  
+                <button type="reset" class="btn btn-danger btn-block" >limpiar</button>
+                <button type="submit" class="btn btn-outline-success btn-block" onclick="comprobarCon()" value="guardar"> guardar</button>
+                <br>
+              </div>
+            </div>          
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
-  <div class="col-md-4"></div>
-</div>
-</form>
+</section>
 
 
 

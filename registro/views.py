@@ -10,20 +10,20 @@ from .models import Usuario, Perro
 # Create your views here.
 
 def index(request):
-    return render (request, 'index.html', {})
+    return render(request, 'index.html', {})
 
 def quienes(request):
-    return render (request, 'quienes.html', {})
+    return render(request, 'quienes.html', {})
 
 
 def contactenos(request):
-    return render (request, 'contactenos.html', {})
+    return render(request, 'contactenos.html', {})
 
 def servicios(request):
-    return render (request, 'servicios.html', {})
+    return render(request, 'servicios.html', {})
 
 def adoptar(request):
-    return render  (request, 'adoptar.html', {})   
+    return render(request, 'adoptar.html', {})   
 
 def login(request):
     return render(request, 'login.html',{})
@@ -46,14 +46,18 @@ def u_crear(request):
     rut = request.POST.get('rut', '')
     correo = request.POST.get('Email', '')
     nombre = request.POST.get('name', '')
+    username = request.POST.get('username')
     fechanac = request.POST.get('fecha', '')
     telefono = request.POST.get('telefono', '')
     region = request.POST.get('region', '')
     ciudad = request.POST.get('comuna', '')
     tipoviv = request.POST.get('vivienda', '')
+    contra = request.POST.get('con1','')
     usuario = Usuario(rut=rut, correo=correo, nombre=nombre, fechanac=fechanac,
                       telefono=telefono, region=region, ciudad=ciudad, tipoviv=tipoviv)
     usuario.save()
+    user = User.objects.create_user(username=username, email=correo, password=contra)
+    user.save()
     return redirect('contactenos')
 
 #Crud Rescatados

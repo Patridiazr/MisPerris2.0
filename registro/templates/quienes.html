@@ -16,40 +16,38 @@
 <body>
     <!---------------------------- BARRA DE NAVEGACION ------------------------>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#85D4B7" >
-            <img src="/static/images/logo.png" alt="img" style="widows: 100%;">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active" >
-                <a class="nav-link" href="/registro/templates/index.html"  >Inicio <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/registro/templates/quienes.html">Quienes Somos</a>
-                </li>
-                <li class="nav-item active">
-                <a class="nav-link"  href="/registro/templates/servicios.html">Servicios</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/registro/templates/contactenos.html">Contactenos</a>
-                </li>
-                <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Mantenedor
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="adoptar.html">Agregar</a>
-                      
-                      <a class="dropdown-item" href="listado.html">Listado</a>
-                    </div>
-                  </li>
-                    <a class="nav-link"  href="/registro/templates/login.html">Ingresar</a>
-                  </li>
-            </ul>
-          </div>
-        </nav>
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#85D4B7" >
+        <img src="/static/images/logo.png" alt="img" style="widows: 100%;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" >
+              <a class="nav-link" href="{% url 'index' %}"  >Inicio </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'quienes' %}">Quienes Somos</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link"  href="{% url 'servicios' %}">Servicios</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'contactenos' %}">Contactenos</a>
+            </li>
+            <li class="nav-item dropdown active">
+              <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mantenedor</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'adoptar' %}">Agregar</a>
+                <a class="dropdown-item" href="{% url 'listado' %}">Listado</a>
+              </div>
+            </li>
+            <li class="navbar-left">
+              <a class="nav-link "  href="{% url 'login' %}">Ingresar</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
   
     <!----------------------------Carrusel de imagenes---------------------------------->
