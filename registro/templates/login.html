@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <title>Mis Perris</title>
 </head>
-        <body id="LoginForm" form method="POST" class="form-signin" action="{% url "iniciar" %}">
+        <body id="LoginForm" form method="POST" class="form-signin" action="{% url 'iniciar' %}">
                 {% csrf_token %}
                 <div class="container">
                         <div class="row">
