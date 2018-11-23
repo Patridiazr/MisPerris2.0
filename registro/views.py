@@ -6,6 +6,10 @@ from django.contrib.auth import authenticate, logout, login as auth_login
 from django.contrib.auth.decorators import login_required
 from .models import Usuario, Perro
 
+#import de api 
+
+from rest_framework import viewsets
+from .serializer import UsuarioSerializer,PerroSerializer
 
 # Create your views here.
 
@@ -111,3 +115,10 @@ def cerrar_session(request):
     logout(request)
     return HttpResponse('<script>alert("Cierre de sesión correcto."); window.location.href="/index/";</script>')               
 
+class UsuarioViewSet(viewsets.ModelViewSet):
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioSerializer
+
+class PerroViewSet(viewsets.ModelViewSet):
+    queryset = Perro.objects.all()
+    serializer_class = PerroSerializer

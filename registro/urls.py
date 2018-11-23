@@ -1,9 +1,14 @@
-from django.urls import path
+from django.urls import path,include
 from django.conf.urls import url
 from . import views
 from django.contrib import admin
 from django.contrib.auth.views import LoginView
+from rest_framework import routers
 
+
+router = routers.DefaultRouter()
+router.register(r'usuario', views.UsuarioViewSet)
+router.register(r'perro', views.PerroViewSet)
 
 urlpatterns = [
     path('', views.index, name="index"),
@@ -20,6 +25,7 @@ urlpatterns = [
     path('registro/eliminar/<int:id_p>', views.p_eliminar, name="eliminar"),
     path('registro/editar/<int:id_p>', views.p_editar, name="editar"),
     path('registro/editado/<int:id_p>', views.p_editado, name="editado"),
+    path('api/', include(router.urls)),
     
     url(r'^login/$', views.login, name="login"),
     url(r'^login/iniciar/$', views.login_iniciar, name="iniciar"),
