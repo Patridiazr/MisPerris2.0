@@ -97,18 +97,22 @@ def p_editado(request, id_p):
 
    
 
-def login_iniciar(request):
-    usuario = request.POST.get('rut','')
-    contrasenia = request.POST.get('contrasenia','')
-    user = authenticate(request, username=usuario, password=contrasenia)
+#LOGIN
 
+def login_iniciar(request):
+    username = request.POST.get('rut','')
+    password = request.POST.get('contrasenia','')
+    user = authenticate(request,username=username, password=password)
+    print(username,password)
     if user is not None:
         auth_login(request, user)
-        return HttpResponse('<script>alert("Inicio de sesión correcto.");'+
-                            'window.location.href="/index/";</script>')
+        return HttpResponse('<script>alert("Inicio de sesión correcto."); window.location.href="/";</script>')
     else:
-        return HttpResponse('<script>alert("Ocurrió un error, intenta nuevamente...");'
-                            +' window.location.href="/login/";</script>')
+        return HttpResponse('<script>alert("Ocurrió un error, intenta nuevamente..."); window.location.href="/";</script>')
+
+def logout_view(request):
+    logout(request)
+    return redirect('index')
 
 @login_required(login_url='/login/')
 def cerrar_session(request):

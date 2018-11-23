@@ -27,10 +27,10 @@ urlpatterns = [
     path('registro/editado/<int:id_p>', views.p_editado, name="editado"),
     path('api/', include(router.urls)),
     
-    url(r'^login/$', views.login, name="login"),
-    url(r'^login/iniciar/$', views.login_iniciar, name="iniciar"),
-    url(r'^cerrarsesion$', views.cerrar_session, name="cerrar_session"),
-    url(r'^cerrarsesion$', views.cerrar_session, name="cerrar_session"),
+    path('login/', views.login, name="login"),
+    path('login/iniciar',views.login_iniciar,name="iniciar"),
+    path('cerrarsesion', views.cerrar_session, name="cerrar_session"),
+    path('cerrarsesion', views.cerrar_session, name="cerrar_session"),
     
     
 ]
