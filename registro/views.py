@@ -123,6 +123,8 @@ def cerrar_session(request):
     logout(request)
     return HttpResponse('<script>alert("Cierre de sesión correcto."); window.location.href="/index/";</script>')               
 
+#Serialyzer
+
 class UsuarioViewSet(viewsets.ModelViewSet):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer

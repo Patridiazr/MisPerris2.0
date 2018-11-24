@@ -14,35 +14,80 @@
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <title>Mis Perris</title>
 </head>
-        <body id="LoginForm" form method="POST" class="form-signin" action="{% url 'iniciar' %}">
-                {% csrf_token %}
-                <div class="container">
-                        <div class="row">
-                                <div class="col-md-12">
-                <div class="login-form">
-                <div class="main-div">
-                    <div class="panel">
-                   <h2>Login</h2>
-                   <p>Ingresa con tu Rut y Contraseña</p>
-                   </div>
-                    <form id="Login">
-                        <div class="form-group">
-                                <label for="inputRut"  class="sr-only">Rut</label>
-                                <input type="text" id="inputRut" name="rut" class="form-control" placeholder="Rut" required autofocus>
-                        </div>
-                        <div class="form-group">
-                                <label for="inputPassword" class="sr-only">Contraseña</label>
-                                <input type="password" name="contrasenia" id="inputPassword" class="form-control" placeholder="Contraseña" required>
-                        </div>
-                        <div class="forgot">
-                        <a href="reset.html">Olvidaste tu contraseña?</a>
-                </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
-                <p class="mt-4 mb-3 text-muted">&copy; 2017-2018</p>
-                    </form>
-                    </div>
-                </div>
-                </div></div></div> 
-                </div>
-</body>
+        <body>
+                
+
+                        <div id="fb-root"></div>
+                        <script>(function(d, s, id) {
+                          var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) return;
+                          js = d.createElement(s); js.id = id;
+                          js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.2&appId=341657529746429&autoLogAppEvents=1';
+                          fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>        
+                
+                <script>
+                        window.fbAsyncInit = function() {
+                        FB.init({
+                        appId      : '{your-app-id}',
+                        cookie     : true,
+                        xfbml      : true,
+                        version    : 'v3.2'
+                        });                                            
+                        FB.AppEvents.logPageView();                                               
+                        };                                      
+                        (function(d, s, id){
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) {return;}
+                                js = d.createElement(s); js.id = id;
+                                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                                fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+                        
+
+                        function checkLoginState() {
+                                FB.getLoginStatus(function(response) {
+                                statusChangeCallback(response);
+                        });
+
+                </script>
+                <form id="LoginForm"  method="POST" class="form-signin" action="{% url 'iniciar' %}">
+                        {% csrf_token %}
+                        <div class="container">
+                                <div class="row">
+                                        <div class="col-md-12">
+                                                <div class="login-form">
+                                                        <div class="main-div">
+                                                                <div class="panel">
+                                                                        <h2>Login</h2>
+                                                                        <p>Ingresa con tu Rut y Contraseña</p>
+                                                                </div>       
+                                                                <form id="Login">
+                                                                        <div class="form-group">
+                                                                                <label for="inputRut"  class="sr-only">Rut</label>
+                                                                                <input type="text" id="inputRut" name="rut" class="form-control" placeholder="Rut" required autofocus>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                                <label for="inputPassword" class="sr-only">Contraseña</label>
+                                                                                <input type="password" name="contrasenia" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+                                                                        </div>
+                                                                        <div class="forgot">
+                                                                                <a href="reset.html">Olvidaste tu contraseña?</a>
+                                                                        </div>
+                                                                        <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
+                                                                        <p class="mt-4 mb-3 text-muted">&copy; 2017-2018</p>
+                                                                        <a href="{% url 'social:begin' 'github' %}">Inicia con GitHub</a>
+                                                                        <a href="{% url 'social:begin' 'facebook' %}">Inicia con Facebook</a>
+                                                                        <div class="fb-login-button" data-width="20" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>                                                                        
+                                                                </form>
+                                                                <p>----- O -----</p>
+
+                                                                
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div> 
+                </form>
+        </body>
 </html>

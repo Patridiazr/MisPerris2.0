@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'registro',
     'rest_framework',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'proyecto.urls'
@@ -64,6 +66,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends', 
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -111,6 +115,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    #'social_core.backends.instagram.InstagramOAuth2'
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.github.GithubOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
@@ -130,6 +141,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_URL = 'login'
+LOGOUT_URL ='logout'
+LOFIN_REDIRECT_URL = 'index'
+
+SOCIAL_AUTH_GITHUB_KEY = '4a752a690ea77e883121'
+SOCIAL_AUTH_GITHUB_SECRET = 'de61d97e5e114e254cac93e2299d236c5016ea36'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '341657529746429'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '216c8778bbfaf1b4cde392128681210a'  # App Secret
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
