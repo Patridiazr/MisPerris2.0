@@ -1,0 +1,16 @@
+{
+    "name": "¡Bienvenido a MisPerris!",
+    "short_name": "MisPerris!",
+    "icons": [
+      {
+        "src": "/static/images/logo.png",
+        "type": "images/png",
+        "sizes": "40x40"
+      }
+    ],
+    "start_url": "/templates/index.html",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#ee0979",
+    "description": "Testeando PWA"
+}
