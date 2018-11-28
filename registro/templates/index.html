@@ -18,15 +18,17 @@
     <title>Mis Perris</title>
 </head>
 <body>
-    <!---------------------------- BARRA DE NAVEGACION ------------------------>
+    
   <header>
+
+    <!----------- BARRA DE NAVEGACION -------------->
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#85D4B7" >
       <img src="/static/images/logo.png" alt="img" style="widows: 100%;">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="nav navbar-nav mr-auto">
           <li class="nav-item active" >
             <a class="nav-link" href="{% url 'index' %}"  >Inicio </a>
           </li>
@@ -36,22 +38,35 @@
           <li class="nav-item active">
             <a class="nav-link"  href="{% url 'servicios' %}">Servicios</a>
           </li>
+          {% if not user.is_authenticated %}
           <li class="nav-item active">
-            <a class="nav-link" href="{% url 'contactenos' %}">Contactenos</a>
+            <a class="nav-link" href="{% url 'contactenos' %}">Registrate</a>
           </li>
+          {% endif %}
+          {% if user.is_superuser %}
           <li class="nav-item dropdown active">
             <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mantenedor</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{% url 'adoptar' %}">Agregar</a>
               <a class="dropdown-item" href="{% url 'listado' %}">Listado</a>
             </div>
-          </li>
-          <li class="navbar-left">
+          </li> 
+          {% endif %}         
+        </ul>
+      </div>
+      <div >
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item active">
+            {% if user.is_authenticated %}
+            <a class="nav-link "  href="{% url 'cerrar_session' %}">Cerrar sesion</a>
+            {% else %}
             <a class="nav-link "  href="{% url 'login' %}">Ingresar</a>
+            {% endif %}
           </li>
         </ul>
       </div>
     </nav>
+
   </header>
   
     <!----------------------------Carrusel de imagenes---------------------------------->

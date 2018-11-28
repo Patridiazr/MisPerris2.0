@@ -49,6 +49,7 @@
                                 FB.getLoginStatus(function(response) {
                                 statusChangeCallback(response);
                         });
+                        };
 
                 </script>
                 <form id="LoginForm"  method="POST" class="form-signin" action="{% url 'iniciar' %}">
@@ -71,16 +72,15 @@
                                                                                 <label for="inputPassword" class="sr-only">Contraseña</label>
                                                                                 <input type="password" name="contrasenia" id="inputPassword" class="form-control" placeholder="Contraseña" required>
                                                                         </div>
-                                                                        <div class="forgot">
-                                                                                <a href="reset.html">Olvidaste tu contraseña?</a>
+                                                                        <div class="forgot"  >
+                                                                                <a class="text-align:center" href="reset.html">¿Olvidaste tu contraseña?</a>
                                                                         </div>
                                                                         <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
-                                                                        <p class="mt-4 mb-3 text-muted">&copy; 2017-2018</p>
-                                                                        <a href="{% url 'social:begin' 'github' %}">Inicia con GitHub</a>
-                                                                        <a href="{% url 'social:begin' 'facebook' %}">Inicia con Facebook</a>
-                                                                        <div class="fb-login-button" data-width="20" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>                                                                        
                                                                 </form>
                                                                 <p>----- O -----</p>
+                                                                <a href="{% url 'social:begin' 'github' %}">Inicia con GitHub</a>
+                                                                <br>
+                                                                <a href="{% url 'social:begin' 'facebook' %}">Inicia con Facebook</a>
 
                                                                 
                                                         </div>

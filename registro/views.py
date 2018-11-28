@@ -121,7 +121,7 @@ def logout_view(request):
 @login_required(login_url='/login/')
 def cerrar_session(request):
     logout(request)
-    return HttpResponse('<script>alert("Cierre de sesión correcto."); window.location.href="/index/";</script>')               
+    return HttpResponse('<script>alert("Cierre de sesión correcto."); window.location.href="/";</script>')               
 
 #Serialyzer
 

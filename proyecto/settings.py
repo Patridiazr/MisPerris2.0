@@ -116,9 +116,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTHENTICATION_BACKENDS = (
-    #'social_core.backends.instagram.InstagramOAuth2'
-    'social_core.backends.facebook.FacebookOAuth2',
+    
+    'social_core.backends.google.GoogleOpenId',  
+    'social_core.backends.google.GoogleOAuth2',  
     'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -143,14 +145,18 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_URL = 'login'
-LOGOUT_URL ='logout'
-LOFIN_REDIRECT_URL = 'index'
+LOGOUT_URL =''
+LOGIN_REDIRECT_URL = 'index'
 
 SOCIAL_AUTH_GITHUB_KEY = '4a752a690ea77e883121'
 SOCIAL_AUTH_GITHUB_SECRET = 'de61d97e5e114e254cac93e2299d236c5016ea36'
 
 SOCIAL_AUTH_FACEBOOK_KEY = '341657529746429'  # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = '216c8778bbfaf1b4cde392128681210a'  # App Secret
+SOCIAL_AUTH_FACEBOOK_SECRET = '216c8778bbfaf1b4cde392128681210a'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '224735952866-k0k9665lg5emt4o2qhffeipgu89a8v68.apps.googleusercontent.com'  
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '4B0854_CBeXtRq9khezg2D2v' 
+
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
