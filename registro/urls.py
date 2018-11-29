@@ -27,6 +27,7 @@ urlpatterns = [
     path('login/iniciar', views.login_iniciar, name="iniciar"),
     path('cerrarsesion', views.cerrar_session, name="cerrar_session"),
     path('oauth/', include('social_django.urls', namespace='social')),
+    path('', include('pwa.urls')),
    
     
     

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'registro',
     'rest_framework',
     'social_django',
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -159,6 +160,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '4B0854_CBeXtRq9khezg2D2v'
 
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'registro/templates/', 'sw.js')
 
 
 
